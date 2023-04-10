@@ -699,9 +699,6 @@ public class home extends javax.swing.JFrame {
             jButton6.setEnabled(false);
             jButton7.setEnabled(false); 
             lblStatus.setText("Scaning...");
-
-
-
             lblStatus.setText("Server Stoped!");
         } catch (Exception e) {
             lblStatus.setText("ERROR : " + e);
@@ -714,7 +711,6 @@ public class home extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
 //            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            
             
             lblLink.setEnabled(false);
             lblPort.setEnabled(false);
@@ -744,7 +740,6 @@ public class home extends javax.swing.JFrame {
             String t_sub;
             String line;
             
-            
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
             while(result.next()){
@@ -753,16 +748,11 @@ public class home extends javax.swing.JFrame {
                 f_sub = result.getString(3);
                 s_sub = result.getString(4);
                 t_sub = result.getString(5);
-
-
-                
-                Object[] rowData = {id, name, f_sub, s_sub, t_sub};
-                rowData = new Object[]{id, name, f_sub, s_sub, t_sub};
+                Object[] rowData = {id, name, s_sub, t_sub};
+                rowData = new Object[]{id, name, s_sub, t_sub};
                 model.addRow(rowData);
                 
             }
-
-
                 lblStatus.setText("Server Started!");
             } catch (Exception e) {
                 lblStatus.setText("ERROR : " + e);
@@ -813,14 +803,11 @@ public class home extends javax.swing.JFrame {
         String url = lblLink.getText() + ":" + lblPort.getText() + "/rcc";
         String user = lblUser.getText();
         String password = lblPassword.getText();
-        
-        
         String ID = stu_ID.getText();
         try {
             int num = Integer.parseInt(ID);
         } catch (Exception e) {
         }
-        
         String name = stu_Name.getText();
         String m_sub = stu_AL_main.getSelectedItem().toString();
         String f_sub = stu_AL_first.getSelectedItem().toString();
@@ -837,38 +824,46 @@ public class home extends javax.swing.JFrame {
         String ol_part2 = stu_OL_BKT2.getSelectedItem().toString();
         String part_3 = bkt3_name.getSelectedItem().toString();
         String ol_part3 = stu_OL_BKT3.getSelectedItem().toString();
-        try {
-            if(name == "" && ID == ""){
-                JOptionPane.showMessageDialog(null,"Check Name And ID");
+        if (jButton5.getText() == "SAVE"){
+            try {
+                if(name == "" && ID == ""){
+                    JOptionPane.showMessageDialog(null,"Check Name And ID");
+                }
+                else{
+                    String query = "INSERT INTO stu_data VALUES ("+ ID +",'"+ name +"', '"+ m_sub +"', '"+ f_sub +"', '"+ s_sub +"', '"+ ol_maths +"', '"+ ol_science +"', '"+ ol_sinhala +"', '"+ ol_religion +"', '"+ ol_english +"', '"+ part_1 +"', '"+ ol_part1 +"', '"+ part_2 +"', '"+ ol_part2 +"', '"+ part_3 +"', '"+ ol_part3 +"', '"+ ol_history +"')"; //ol_history
+                    Class.forName("com.mysql.cj.jdbc.Driver");
+                    Connection connection = DriverManager.getConnection(url, user, password);
+                    Statement statement = connection.createStatement();
+
+                    statement.executeUpdate(query);
+                    stu_ID.setText("");
+                    stu_Name.setText("");
+                    stu_AL_main.setSelectedIndex(0);
+                    stu_AL_first.setSelectedIndex(0);
+                    stu_AL_secound.setSelectedIndex(0);
+                    stu_OL_Mathematics.setSelectedIndex(0);
+                    stu_OL_Science.setSelectedIndex(0);
+                    stu_OL_Sinhala.setSelectedIndex(0);
+                    stu_OL_Religion.setSelectedIndex(0);
+                    stu_OL_History.setSelectedIndex(0);
+                    stu_OL_English.setSelectedIndex(0);
+                    bkt1_name.setSelectedIndex(0);   
+                    stu_OL_BKT1.setSelectedIndex(0);  
+                    bkt2_name.setSelectedIndex(0);
+                    stu_OL_BKT2.setSelectedIndex(0);
+                    bkt3_name.setSelectedIndex(0);        
+                    stu_OL_BKT3.setSelectedIndex(0);        
+                    stu_OL_BKT1.setSelectedIndex(0);
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"ERROR : " + e);
             }
-            else{
-                String query = "INSERT INTO stu_data VALUES ("+ ID +",'"+ name +"', '"+ m_sub +"', '"+ f_sub +"', '"+ s_sub +"', '"+ ol_maths +"', '"+ ol_science +"', '"+ ol_sinhala +"', '"+ ol_religion +"', '"+ ol_english +"', '"+ part_1 +"', '"+ ol_part1 +"', '"+ part_2 +"', '"+ ol_part2 +"', '"+ part_3 +"', '"+ ol_part3 +"', '"+ ol_history +"')"; //ol_history
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection connection = DriverManager.getConnection(url, user, password);
-                Statement statement = connection.createStatement();
-                        
-                statement.executeUpdate(query);
-                stu_ID.setText("");
-                stu_Name.setText("");
-                stu_AL_main.setSelectedIndex(0);
-                stu_AL_first.setSelectedIndex(0);
-                stu_AL_secound.setSelectedIndex(0);
-                stu_OL_Mathematics.setSelectedIndex(0);
-                stu_OL_Science.setSelectedIndex(0);
-                stu_OL_Sinhala.setSelectedIndex(0);
-                stu_OL_Religion.setSelectedIndex(0);
-                stu_OL_History.setSelectedIndex(0);
-                stu_OL_English.setSelectedIndex(0);
-                bkt1_name.setSelectedIndex(0);   
-                stu_OL_BKT1.setSelectedIndex(0);  
-                bkt2_name.setSelectedIndex(0);
-                stu_OL_BKT2.setSelectedIndex(0);
-                bkt3_name.setSelectedIndex(0);        
-                stu_OL_BKT3.setSelectedIndex(0);        
-                stu_OL_BKT1.setSelectedIndex(0);
+        }else if(jButton5.getText() == "EDIT"){
+            try {
+                
+                jButton5.setText("SAVE");
+            } catch (Exception e) {
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"ERROR : " + e);
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -901,7 +896,11 @@ public class home extends javax.swing.JFrame {
         String user = lblUser.getText();
         String password = lblPassword.getText();
         
-        if (stu_ID.getText() != ""){
+        String stu_id = stu_ID.getText();
+        if (stu_id.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Check ID value");
+        }else{
+//            JOptionPane.showMessageDialog(null,"-----"+ stu_id +"----");
             try {
                 String i_d =  stu_ID.getText();
                 int id = Integer.parseInt(i_d);
@@ -912,8 +911,10 @@ public class home extends javax.swing.JFrame {
                 pstmt.setInt(1, id); // set the value of the first parameter to 1
                 ResultSet rs = pstmt.executeQuery();
                 if (rs.next()) {
-                    System.out.println("ID: " + rs.getInt("ID"));
-                    System.out.println("Name: " + rs.getString("name"));
+                    String name = rs.getString("name");
+                    stu_Name.setText(name);
+//                    System.out.println("ID: " + rs.getInt("ID"));
+//                    System.out.println("Name: " + rs.getString("name"));
     //                System.out.println("Age: " + rs.getInt("age"));
                 } else {
 //                    System.out.println("No rows found!");
@@ -924,9 +925,9 @@ public class home extends javax.swing.JFrame {
                 ex.printStackTrace();
             }
             jButton5.setText("EDIT");
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Check ID value");
+      
+        
+            
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
