@@ -5,6 +5,10 @@
  */
 package rcc.tech;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,7 +16,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+
+import javax.swing.*;
+import javax.swing.tree.*;
+
 
 /**
  *
@@ -98,8 +108,25 @@ public class home extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        lbl_all = new javax.swing.JLabel();
+        lbl_et = new javax.swing.JLabel();
+        lbl_bst = new javax.swing.JLabel();
+        lbl_ict = new javax.swing.JLabel();
+        lbl_agr = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -113,6 +140,8 @@ public class home extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RCC - TECH - Students Data Management System   V 0.0.1.23");
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -509,20 +538,23 @@ public class home extends javax.swing.JFrame {
                                 .addGap(88, 88, 88)
                                 .addComponent(jLabel26)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addComponent(jLabel31)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel31)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addGap(22, 22, 22)
+                                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(43, 43, 43))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel32)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel34)
-                                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel32)
                         .addGap(35, 35, 35)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(stu_OL_Science, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -593,36 +625,34 @@ public class home extends javax.swing.JFrame {
                             .addComponent(jButton7)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel23)
+                                .addComponent(stu_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel23)
-                                        .addComponent(stu_ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(stu_OL_Mathematics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(stu_OL_Science, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(stu_OL_Mathematics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(stu_OL_Sinhala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(stu_OL_Science, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel32))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(stu_OL_Sinhala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(stu_OL_Religion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(stu_OL_History, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(stu_OL_History, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel36))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(stu_OL_English, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel32)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel35)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel36)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel37)))
-                        .addGap(18, 18, 18)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(stu_OL_English, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel37)))
+                            .addComponent(jLabel35))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(stu_OL_BKT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bkt1_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -640,6 +670,92 @@ public class home extends javax.swing.JFrame {
         jTabbedPane4.addTab("Data Insert Menu", jPanel5);
 
         jTabbedPane1.addTab("Add Data", jTabbedPane4);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel13.setText("All Student Count");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setText("Engineering Technology (ET)");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel15.setText("Bio Systems Technology (BST)");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel16.setText("Information And Communication Technology (ICT)");
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel17.setText("Agro Technology");
+
+        lbl_all.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbl_all.setText("00");
+
+        lbl_et.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbl_et.setText("00");
+
+        lbl_bst.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbl_bst.setText("00");
+
+        lbl_ict.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbl_ict.setText("00");
+
+        lbl_agr.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbl_agr.setText("00");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lbl_et)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel16)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(lbl_all))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_bst, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbl_ict, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lbl_agr, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                .addContainerGap(317, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(lbl_all))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(lbl_et))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(lbl_bst))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(lbl_ict))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(lbl_agr))
+                .addContainerGap(249, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("View Count", jPanel7);
+
         jTabbedPane1.addTab("View Data", jTabbedPane2);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -661,6 +777,69 @@ public class home extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jTabbedPane1.addTab("Data Table", jScrollPane1);
+
+        jButton2.setText("Check Having Database");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Download Database");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Contact Developer");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile.jpeg"))); // NOI18N
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Developed By Shehan Rajapaksha");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1)
+                    .addComponent(jButton3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(169, 169, 169))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(185, 185, 185))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton3)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel9)
+                .addContainerGap(151, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Settings", jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -740,6 +919,12 @@ public class home extends javax.swing.JFrame {
             String t_sub;
             String line;
             
+            int all = 0;
+            int stu_ET = 0;
+            int stu_BST = 0;
+            int stu_ICT = 0;
+            int stu_AGR = 0;
+            
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
             while(result.next()){
@@ -752,7 +937,47 @@ public class home extends javax.swing.JFrame {
                 rowData = new Object[]{id, name, s_sub, t_sub};
                 model.addRow(rowData);
                 
+                
+                if(s_sub.equals("Engineering Technology (ET)")){
+                    stu_ET = stu_ET + 1;
+                }if(s_sub.equals("Bio Systems Technology (BST)")){
+                    stu_BST = stu_BST + 1;
+                }else if(t_sub.equals("Information And Communication Technology (ICT)")){
+                    stu_ICT = stu_ICT + 1;
+                }if(t_sub.equals("Agro Technology")){
+                    stu_AGR = stu_AGR + 1;
+                }
+//                all = stu_AGR + stu_BST + stu_ET + stu_ICT;
             }
+
+            String lbl_ET = String.valueOf(stu_ET);
+            lbl_et.setText(lbl_ET);
+            
+            String lbl_BST = String.valueOf(stu_BST);
+            lbl_bst.setText(lbl_BST);
+            
+            String lbl_ICT = String.valueOf(stu_ICT);
+            lbl_ict.setText(lbl_ICT);
+            
+            String lbl_AGR = String.valueOf(stu_AGR);
+            lbl_agr.setText(lbl_AGR);
+            
+//            all = stu_AGR + stu_BST + stu_ET + stu_ICT;
+//            all = all / 2;
+            int all_1 = stu_AGR + stu_BST;
+            String lbll_all = String.valueOf(all_1);
+            int all_2 = stu_ET + stu_ICT;
+            String lb2_al1 = String.valueOf(all_2);
+            
+            if(lbll_all.equals(lb2_al1)){
+                lbl_all.setText(lbll_all);
+            }else{
+                lbl_all.setText("ET & BST = "+lbll_all+ " | ICT & AGREE = " + lb2_al1);
+            }
+           
+            
+            
+            
                 lblStatus.setText("Server Started!");
             } catch (Exception e) {
                 lblStatus.setText("ERROR : " + e);
@@ -834,8 +1059,8 @@ public class home extends javax.swing.JFrame {
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection connection = DriverManager.getConnection(url, user, password);
                     Statement statement = connection.createStatement();
-
                     statement.executeUpdate(query);
+                    
                     stu_ID.setText("");
                     stu_Name.setText("");
                     stu_AL_main.setSelectedIndex(0);
@@ -860,11 +1085,68 @@ public class home extends javax.swing.JFrame {
             }
         }else if(jButton5.getText() == "EDIT"){
             try {
-                
+                if(name == "" && ID == ""){
+                    JOptionPane.showMessageDialog(null,"Check Name And ID");
+                }
+                else{
+                    String stuId = stu_ID.getText();
+                    int stu_id = Integer.parseInt(stuId);
+                    String e_name = stu_Name.getText();
+                    String e_m_sub = stu_AL_main.getSelectedItem().toString();
+                    String e_f_sub = stu_AL_first.getSelectedItem().toString();
+                    String e_s_sub = stu_AL_secound.getSelectedItem().toString();
+                    String e_ol_maths = stu_OL_Mathematics.getSelectedItem().toString();
+                    String e_ol_science = stu_OL_Science.getSelectedItem().toString();
+                    String e_ol_sinhala = stu_OL_Sinhala.getSelectedItem().toString();
+                    String e_ol_religion = stu_OL_Religion.getSelectedItem().toString();
+                    String e_ol_history = stu_OL_History.getSelectedItem().toString();
+                    String e_ol_english = stu_OL_English.getSelectedItem().toString();
+                    String e_part_1 = bkt1_name.getSelectedItem().toString();
+                    String e_ol_part1 = stu_OL_BKT1.getSelectedItem().toString();
+                    String e_part_2 = bkt2_name.getSelectedItem().toString();
+                    String e_ol_part2 = stu_OL_BKT2.getSelectedItem().toString();
+                    String e_part_3 = bkt3_name.getSelectedItem().toString();
+                    String e_ol_part3 = stu_OL_BKT3.getSelectedItem().toString();
+                    
+                    String query = "UPDATE stu_data set name='"+ e_name +"' ,m_subject='"+e_m_sub+"' ,f_subject='"+e_f_sub+"' ,s_subject='"+e_s_sub+"' ,ol_maths='"+e_ol_maths+"' ,ol_science='"+e_ol_science+"' ,ol_sinhala='"+e_ol_sinhala+"' ,ol_religion='"+e_ol_religion+"' ,ol_english='"+e_ol_english+"' ,part_1='"+e_part_1+"' ,ol_pary1='"+e_ol_part1+"' ,part_2='"+e_part_2+"' ,ol_pary2='"+e_ol_part2+"' ,part_3='"+e_part_3+"' ,ol_pary3='"+e_ol_part3+"' ,ol_history='"+e_ol_history+"'  WHERE ID='" + stu_id + "'";
+//                    " + stu_ID + "   '"+ name +"'
+//,m_subject='"+e_m_sub+"' ,f_subject='"+e_f_sub+"' ,s_subject='"+e_s_sub+"' ,ol_maths='"+e_ol_maths+"' ,ol_science='"+e_ol_science+"' ,ol_sinhala='"+e_ol_sinhala+"' ,ol_religion='"+e_ol_religion+"' ,ol_english='"+e_ol_english+"' ,part_1='"+e_part_1+"' ,ol_pary1='"+e_ol_part1+"' ,part_2='"+e_part_2+"' ,ol_pary2='"+e_ol_part2+"' ,part_3='"+e_part_3+"' ,ol_pary3='"+e_ol_part3+"' ,ol_history='"+e_ol_history+"'
+
+                    try {
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        Connection connection = DriverManager.getConnection(url, user, password);
+                        Statement statement = connection.createStatement();
+                        int rowsUpdated = statement.executeUpdate(query);
+                        System.out.println(rowsUpdated + " rows updated.");
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null,"ERROR : " + e);
+                    }
+                    
+                           
+                    stu_ID.setText("");
+                    stu_Name.setText("");
+                    stu_AL_main.setSelectedIndex(0);
+                    stu_AL_first.setSelectedIndex(0);
+                    stu_AL_secound.setSelectedIndex(0);
+                    stu_OL_Mathematics.setSelectedIndex(0);
+                    stu_OL_Science.setSelectedIndex(0);
+                    stu_OL_Sinhala.setSelectedIndex(0);
+                    stu_OL_Religion.setSelectedIndex(0);
+                    stu_OL_History.setSelectedIndex(0);
+                    stu_OL_English.setSelectedIndex(0);
+                    bkt1_name.setSelectedIndex(0);   
+                    stu_OL_BKT1.setSelectedIndex(0);  
+                    bkt2_name.setSelectedIndex(0);
+                    stu_OL_BKT2.setSelectedIndex(0);
+                    bkt3_name.setSelectedIndex(0);        
+                    stu_OL_BKT3.setSelectedIndex(0);        
+                    stu_OL_BKT1.setSelectedIndex(0);
+                }
                 jButton5.setText("SAVE");
             } catch (Exception e) {
             }
         }
+        stu_ID.setEnabled(true); 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -888,6 +1170,7 @@ public class home extends javax.swing.JFrame {
         stu_OL_BKT3.setSelectedIndex(0);        
         stu_OL_BKT1.setSelectedIndex(0);
         jButton5.setText("SAVE");
+        stu_ID.setEnabled(true); 
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -895,6 +1178,7 @@ public class home extends javax.swing.JFrame {
         String url = lblLink.getText() + ":" + lblPort.getText() + "/rcc";
         String user = lblUser.getText();
         String password = lblPassword.getText();
+        stu_ID.setEnabled(false); 
         
         String stu_id = stu_ID.getText();
         if (stu_id.isEmpty()){
@@ -913,9 +1197,222 @@ public class home extends javax.swing.JFrame {
                 if (rs.next()) {
                     String name = rs.getString("name");
                     stu_Name.setText(name);
+                    
+                    String main_subject = rs.getString("m_subject");
+                    if(main_subject.equals("SELECT")){
+                        stu_AL_main.setSelectedIndex(0);
+                    }
+                    
+                    String secound_subject = rs.getString("f_subject");
+                    if(secound_subject.equals("SELECT")){
+                        stu_AL_first.setSelectedIndex(0);
+                    }else if(secound_subject.equals("Engineering Technology (ET)")){
+                        stu_AL_first.setSelectedIndex(1);
+                    }if(secound_subject.equals("Bio Systems Technology (BST)")){
+                        stu_AL_first.setSelectedIndex(2);
+                    }
+                    
+                    String third_subject = rs.getString("s_subject");
+                    if(third_subject.equals("SELECT")){
+                        stu_AL_secound.setSelectedIndex(0);
+                    }else if(third_subject.equals("Information And Communication Technology (ICT)")){
+                        stu_AL_secound.setSelectedIndex(1);
+                    }if(third_subject.equals("Agro Technology")){
+                        stu_AL_secound.setSelectedIndex(2);
+                    }
+                    
+                    String olMaths = rs.getString("ol_maths");
+                    if(olMaths.equals("SELECT")){
+                        stu_OL_Mathematics.setSelectedIndex(0);
+                    }else if(olMaths.equals("A  -  pass")){
+                        stu_OL_Mathematics.setSelectedIndex(1);
+                    }else if(olMaths.equals("B  -  pass")){
+                        stu_OL_Mathematics.setSelectedIndex(2);
+                    }else if(olMaths.equals("C  -  pass")){
+                        stu_OL_Mathematics.setSelectedIndex(3);
+                    }else if(olMaths.equals("S  -  pass")){
+                        stu_OL_Mathematics.setSelectedIndex(4);
+                    }else if(olMaths.equals("W -  faild")){
+                        stu_OL_Mathematics.setSelectedIndex(5);
+                    }
+                    
+                    String olScience = rs.getString("ol_science");
+                    if(olScience.equals("SELECT")){
+                        stu_OL_Science.setSelectedIndex(0);
+                    }else if(olScience.equals("A  -  pass")){
+                        stu_OL_Science.setSelectedIndex(1);
+                    }else if(olScience.equals("B  -  pass")){
+                        stu_OL_Science.setSelectedIndex(2);
+                    }else if(olScience.equals("C  -  pass")){
+                        stu_OL_Science.setSelectedIndex(3);
+                    }else if(olScience.equals("S  -  pass")){
+                        stu_OL_Science.setSelectedIndex(4);
+                    }else if(olScience.equals("W -  faild")){
+                        stu_OL_Science.setSelectedIndex(5);
+                    }
+                    
+                    String olSinhala = rs.getString("ol_sinhala");
+                    if(olSinhala.equals("SELECT")){
+                        stu_OL_Sinhala.setSelectedIndex(0);
+                    }else if(olSinhala.equals("A  -  pass")){
+                        stu_OL_Sinhala.setSelectedIndex(1);
+                    }else if(olSinhala.equals("B  -  pass")){
+                        stu_OL_Sinhala.setSelectedIndex(2);
+                    }else if(olSinhala.equals("C  -  pass")){
+                        stu_OL_Sinhala.setSelectedIndex(3);
+                    }else if(olSinhala.equals("S  -  pass")){
+                        stu_OL_Sinhala.setSelectedIndex(4);
+                    }else if(olSinhala.equals("W -  faild")){
+                        stu_OL_Sinhala.setSelectedIndex(5);
+                    }
+                    
+                    String olReligion = rs.getString("ol_religion");
+                    if(olReligion.equals("SELECT")){
+                        stu_OL_Religion.setSelectedIndex(0);
+                    }else if(olReligion.equals("A  -  pass")){
+                        stu_OL_Religion.setSelectedIndex(1);
+                    }else if(olReligion.equals("B  -  pass")){
+                        stu_OL_Religion.setSelectedIndex(2);
+                    }else if(olReligion.equals("C  -  pass")){
+                        stu_OL_Religion.setSelectedIndex(3);
+                    }else if(olReligion.equals("S  -  pass")){
+                        stu_OL_Religion.setSelectedIndex(4);
+                    }else if(olReligion.equals("W -  faild")){
+                        stu_OL_Religion.setSelectedIndex(5);
+                    }
+                    
+                    String olHistory = rs.getString("ol_history");
+                    if(olHistory.equals("SELECT")){
+                        stu_OL_History.setSelectedIndex(0);
+                    }else if(olHistory.equals("A  -  pass")){
+                        stu_OL_History.setSelectedIndex(1);
+                    }else if(olHistory.equals("B  -  pass")){
+                        stu_OL_History.setSelectedIndex(2);
+                    }else if(olHistory.equals("C  -  pass")){
+                        stu_OL_History.setSelectedIndex(3);
+                    }else if(olHistory.equals("S  -  pass")){
+                        stu_OL_History.setSelectedIndex(4);
+                    }else if(olHistory.equals("W -  faild")){
+                        stu_OL_History.setSelectedIndex(5);
+                    }
+                    
+                    String olEnglish = rs.getString("ol_english");
+                    if(olEnglish.equals("SELECT")){
+                        stu_OL_English.setSelectedIndex(0);
+                    }else if(olEnglish.equals("A  -  pass")){
+                        stu_OL_English.setSelectedIndex(1);
+                    }else if(olEnglish.equals("B  -  pass")){
+                        stu_OL_English.setSelectedIndex(2);
+                    }else if(olEnglish.equals("C  -  pass")){
+                        stu_OL_English.setSelectedIndex(3);
+                    }else if(olEnglish.equals("S  -  pass")){
+                        stu_OL_English.setSelectedIndex(4);
+                    }else if(olEnglish.equals("W -  faild")){
+                        stu_OL_English.setSelectedIndex(5);
+                    }
+                    
+                    String part1 = rs.getString("part_1");
+                    if(part1.equals("Bucket I")){
+                        bkt1_name.setSelectedIndex(0);
+                    }else if(part1.equals("Tamil Language")){
+                        bkt1_name.setSelectedIndex(1);
+                    }else if(part1.equals("Geography")){
+                        bkt1_name.setSelectedIndex(2);
+                    }else if(part1.equals("Commerce")){
+                        bkt1_name.setSelectedIndex(3);
+                    }else if(part1.equals("Citizenship Education")){
+                        bkt1_name.setSelectedIndex(4);
+                    }
+                    
+                    String olPary1 = rs.getString("ol_pary1");
+                    if(olPary1.equals("SELECT")){
+                        stu_OL_BKT1.setSelectedIndex(0);
+                    }else if(olPary1.equals("A  -  pass")){
+                        stu_OL_BKT1.setSelectedIndex(1);
+                    }else if(olPary1.equals("B  -  pass")){
+                        stu_OL_BKT1.setSelectedIndex(2);
+                    }else if(olPary1.equals("C  -  pass")){
+                        stu_OL_BKT1.setSelectedIndex(3);
+                    }else if(olPary1.equals("S  -  pass")){
+                        stu_OL_BKT1.setSelectedIndex(4);
+                    }else if(olPary1.equals("W -  faild")){
+                        stu_OL_BKT1.setSelectedIndex(5);
+                    }
+                    
+                    String part2 = rs.getString("part_2");
+                    if(part1.equals("Bucket II")){
+                        bkt2_name.setSelectedIndex(0);
+                    }else if(part2.equals("Eastern music")){
+                        bkt2_name.setSelectedIndex(1);
+                    }else if(part2.equals("Western Music")){
+                        bkt2_name.setSelectedIndex(2);
+                    }else if(part2.equals("Western Music")){
+                        bkt2_name.setSelectedIndex(3);
+                    }else if(part2.equals("Art")){
+                        bkt2_name.setSelectedIndex(4);
+                    }else if(part2.equals("Dancing")){
+                        bkt2_name.setSelectedIndex(5);
+                    }else if(part2.equals("English Language & Literature")){
+                        bkt2_name.setSelectedIndex(6);
+                    }else if(part2.equals("Drama Theater")){
+                        bkt2_name.setSelectedIndex(7);
+                    }else if(part2.equals("Japanese")){
+                        bkt2_name.setSelectedIndex(8);
+                    }else if(part2.equals("Sinhala Literature")){
+                        bkt2_name.setSelectedIndex(9);
+                    }
+                    
+                    String olPary2 = rs.getString("ol_pary2");
+                    if(olPary2.equals("SELECT")){
+                        stu_OL_BKT2.setSelectedIndex(0);
+                    }else if(olPary2.equals("A  -  pass")){
+                        stu_OL_BKT2.setSelectedIndex(1);
+                    }else if(olPary2.equals("B  -  pass")){
+                        stu_OL_BKT2.setSelectedIndex(2);
+                    }else if(olPary2.equals("C  -  pass")){
+                        stu_OL_BKT2.setSelectedIndex(3);
+                    }else if(olPary2.equals("S  -  pass")){
+                        stu_OL_BKT2.setSelectedIndex(4);
+                    }else if(olPary2.equals("W -  faild")){
+                        stu_OL_BKT2.setSelectedIndex(5);
+                    }
+                    
+                    String part3 = rs.getString("part_3");
+                    if(part3.equals("Bucket III")){
+                        bkt3_name.setSelectedIndex(0);
+                    }else if(part3.equals("Information &  Communication Technology")){
+                        bkt3_name.setSelectedIndex(1);
+                    }else if(part3.equals("Agriculture")){
+                        bkt3_name.setSelectedIndex(2);
+                    }else if(part3.equals("Health & Physical Education")){
+                        bkt3_name.setSelectedIndex(3);
+                    }else if(part3.equals("Home science")){
+                        bkt3_name.setSelectedIndex(4);
+                    }else if(part3.equals("Media Studies")){
+                        bkt3_name.setSelectedIndex(5);
+                    }else if(part3.equals("Design Technology")){
+                        bkt3_name.setSelectedIndex(6);
+                    }
+                    
+                    String olPary3 = rs.getString("ol_pary3");
+                    if(olPary3.equals("SELECT")){
+                        stu_OL_BKT3.setSelectedIndex(0);
+                    }else if(olPary3.equals("A  -  pass")){
+                        stu_OL_BKT3.setSelectedIndex(1);
+                    }else if(olPary3.equals("B  -  pass")){
+                        stu_OL_BKT3.setSelectedIndex(2);
+                    }else if(olPary3.equals("C  -  pass")){
+                        stu_OL_BKT3.setSelectedIndex(3);
+                    }else if(olPary3.equals("S  -  pass")){
+                        stu_OL_BKT3.setSelectedIndex(4);
+                    }else if(olPary3.equals("W -  faild")){
+                        stu_OL_BKT3.setSelectedIndex(5);
+                    }
+                    
 //                    System.out.println("ID: " + rs.getInt("ID"));
 //                    System.out.println("Name: " + rs.getString("name"));
     //                System.out.println("Age: " + rs.getInt("age"));
+                
                 } else {
 //                    System.out.println("No rows found!");
                     JOptionPane.showMessageDialog(null,"No rows found!");
@@ -934,6 +1431,68 @@ public class home extends javax.swing.JFrame {
     private void stu_OL_ScienceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stu_OL_ScienceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_stu_OL_ScienceActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+//        lblStatus.setText("Scaning...");
+        String url = lblLink.getText() + ":" + lblPort.getText() + "/rcc";
+        String user = lblUser.getText();
+        String password = lblPassword.getText();
+        Connection conn = null;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(url, user, password);
+            JOptionPane.showMessageDialog(null,"Connection Successfull!");
+//            lblStatus.setText("Connection successful!");
+            //            System.out.println("Connection successful!");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"Connection failed!");
+//            lblStatus.setText("Connection failed!");
+            //            System.err.println("Connection failed!");
+            //            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                lblStatus.setText("ERROR : " + e);
+            }
+        } 
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String url = "http://www.example.com"; // replace with your desired URL
+        
+        
+        
+        if (Desktop.isDesktopSupported()) {
+            try {
+//                Desktop.getDesktop().browse(new URL("http://wa.me/+94774690541?text=Help+RCC+STUDENT-APP+:+").toURI());
+                Desktop.getDesktop().browse(new URL("https://github.com/shehan774690541/RCC-Tech-Student-Data").toURI());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"ERROR : " + e);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"Opening browser is not supported on this platform.");
+//            System.out.println("Opening browser is not supported on this platform.");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        if (Desktop.isDesktopSupported()) {
+            try {
+                Desktop.getDesktop().browse(new URL("http://wa.me/+94774690541?text=Help+RCC+STUDENT-APP+:+").toURI());
+//                Desktop.getDesktop().browse(new URL("https://github.com/shehan774690541/RCC-Tech-Student-Data").toURI());
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null,"ERROR : " + e);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"Opening browser is not supported on this platform.");
+//            System.out.println("Opening browser is not supported on this platform.");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -977,11 +1536,19 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton btnStart;
     private javax.swing.JButton btnStart1;
     private javax.swing.JButton btnStop;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -1002,11 +1569,15 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
@@ -1017,6 +1588,11 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JTextField lblPort;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JTextField lblUser;
+    private javax.swing.JLabel lbl_agr;
+    private javax.swing.JLabel lbl_all;
+    private javax.swing.JLabel lbl_bst;
+    private javax.swing.JLabel lbl_et;
+    private javax.swing.JLabel lbl_ict;
     private javax.swing.JComboBox<String> stu_AL_first;
     private javax.swing.JComboBox<String> stu_AL_main;
     private javax.swing.JComboBox<String> stu_AL_secound;
