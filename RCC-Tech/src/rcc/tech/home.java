@@ -41,6 +41,7 @@ public class home extends javax.swing.JFrame {
         jButton6.setEnabled(false);
         jButton7.setEnabled(false); 
         btnStop.setEnabled(false);
+        btnDelet.setEnabled(false); 
     }
 
     /**
@@ -112,6 +113,7 @@ public class home extends javax.swing.JFrame {
         stu_AL_class = new javax.swing.JComboBox<>();
         jLabel39 = new javax.swing.JLabel();
         stu_AL_year = new javax.swing.JComboBox<>();
+        btnDelet = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -525,6 +527,14 @@ public class home extends javax.swing.JFrame {
         stu_AL_year.setBorder(null);
         stu_AL_year.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        btnDelet.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnDelet.setText("DELET");
+        btnDelet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -607,9 +617,11 @@ public class home extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(jButton5)
-                        .addGap(66, 66, 66)
-                        .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton6)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDelet)
+                        .addGap(19, 19, 19)
                         .addComponent(jButton7)
                         .addGap(32, 32, 32)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -697,7 +709,8 @@ public class home extends javax.swing.JFrame {
                     .addComponent(bkt3_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5)
                     .addComponent(jButton6)
-                    .addComponent(jButton7))
+                    .addComponent(jButton7)
+                    .addComponent(btnDelet))
                 .addContainerGap(84, Short.MAX_VALUE))
         );
 
@@ -1461,6 +1474,7 @@ public class home extends javax.swing.JFrame {
 //                    System.out.println("No rows found!");
                     JOptionPane.showMessageDialog(null,"No rows found!");
                 }
+                btnDelet.setEnabled(true); 
                 con.close();
             } catch (SQLException ex) {
                 ex.printStackTrace();
@@ -1566,6 +1580,54 @@ public class home extends javax.swing.JFrame {
             Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_stu_AL_class1ActionPerformed
+
+    private void btnDeletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletActionPerformed
+         // TODO add your handling code here:
+        String url = lblLink.getText() + ":" + lblPort.getText() + "/rcc";
+        String user = lblUser.getText();
+        String password = lblPassword.getText();
+        String rm_id = stu_ID.getText();
+        int rmId = Integer.parseInt(rm_id);
+        
+        String query = "DELETE FROM stu_data WHERE ID ='"+ rmId +"' ";
+//"+ rm_id +"
+        try {
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            int rowsAffected = stmt.executeUpdate(query);
+            System.out.println(rowsAffected + " rows affected");
+            
+            
+            stu_ID.setText("");
+            stu_Name.setText("");
+            stu_AL_main.setSelectedIndex(0);
+            stu_AL_first.setSelectedIndex(0);
+            stu_AL_secound.setSelectedIndex(0);
+            stu_OL_Mathematics.setSelectedIndex(0);
+            stu_OL_Science.setSelectedIndex(0);
+            stu_OL_Sinhala.setSelectedIndex(0);
+            stu_OL_Religion.setSelectedIndex(0);
+            stu_OL_History.setSelectedIndex(0);
+            stu_OL_English.setSelectedIndex(0);
+            bkt1_name.setSelectedIndex(0);   
+            stu_OL_BKT1.setSelectedIndex(0);  
+            bkt2_name.setSelectedIndex(0);
+            stu_OL_BKT2.setSelectedIndex(0);
+            bkt3_name.setSelectedIndex(0);        
+            stu_OL_BKT3.setSelectedIndex(0);        
+            stu_OL_BKT1.setSelectedIndex(0);
+            jButton5.setText("SAVE");
+            stu_ID.setEnabled(true); 
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null,"ERROR : " + e);
+        }
+        try {
+            filter();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        btnDelet.setEnabled(false); 
+    }//GEN-LAST:event_btnDeletActionPerformed
     
     public void filter() throws ClassNotFoundException{
         int all = 0;
@@ -2098,6 +2160,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> bkt1_name;
     private javax.swing.JComboBox<String> bkt2_name;
     private javax.swing.JComboBox<String> bkt3_name;
+    private javax.swing.JButton btnDelet;
     private javax.swing.JButton btnStart;
     private javax.swing.JButton btnStart1;
     private javax.swing.JButton btnStop;
