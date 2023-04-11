@@ -126,6 +126,10 @@ public class home extends javax.swing.JFrame {
         lbl_agr = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         lblSummary = new javax.swing.JTextArea();
+        stu_AL_year1 = new javax.swing.JComboBox<>();
+        stu_AL_class1 = new javax.swing.JComboBox<>();
+        jLabel40 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
@@ -507,7 +511,8 @@ public class home extends javax.swing.JFrame {
         });
 
         stu_AL_class.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        stu_AL_class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F" }));
+        stu_AL_class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "-" }));
+        stu_AL_class.setSelectedIndex(6);
         stu_AL_class.setBorder(null);
         stu_AL_class.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -515,7 +520,8 @@ public class home extends javax.swing.JFrame {
         jLabel39.setText("year / class");
 
         stu_AL_year.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        stu_AL_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026" }));
+        stu_AL_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "-" }));
+        stu_AL_year.setSelectedIndex(8);
         stu_AL_year.setBorder(null);
         stu_AL_year.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -735,6 +741,38 @@ public class home extends javax.swing.JFrame {
         lblSummary.setRows(5);
         jScrollPane3.setViewportView(lblSummary);
 
+        stu_AL_year1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        stu_AL_year1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "ALL" }));
+        stu_AL_year1.setSelectedIndex(8);
+        stu_AL_year1.setBorder(null);
+        stu_AL_year1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        stu_AL_year1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stu_AL_year1ActionPerformed(evt);
+            }
+        });
+
+        stu_AL_class1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        stu_AL_class1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "ALL" }));
+        stu_AL_class1.setSelectedIndex(6);
+        stu_AL_class1.setBorder(null);
+        stu_AL_class1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        stu_AL_class1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stu_AL_class1ActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel40.setText("year / class");
+
+        jButton4.setText("Refresh");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -765,11 +803,27 @@ public class home extends javax.swing.JFrame {
                         .addGap(0, 307, Short.MAX_VALUE))
                     .addComponent(jScrollPane3))
                 .addContainerGap())
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel40)
+                .addGap(18, 18, 18)
+                .addComponent(stu_AL_year1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(stu_AL_class1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel40)
+                    .addComponent(stu_AL_year1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stu_AL_class1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
                     .addComponent(lbl_all))
@@ -803,11 +857,11 @@ public class home extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Name", "Secound Subject", "Third Subject"
+                "ID", "Name", "class", "Secound Subject", "Third Subject"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -928,7 +982,7 @@ public class home extends javax.swing.JFrame {
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         try {
-            updateValues();
+            filter();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1483,10 +1537,249 @@ public class home extends javax.swing.JFrame {
 //            System.out.println("Opening browser is not supported on this platform.");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try {
+            // TODO add your handling code here:
+            filter();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void stu_AL_year1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stu_AL_year1ActionPerformed
+         // TODO add your handling code here:
+         try {
+            // TODO add your handling code here:
+            filter();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_stu_AL_year1ActionPerformed
+
+    private void stu_AL_class1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stu_AL_class1ActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            filter();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_stu_AL_class1ActionPerformed
+    
+    public void filter() throws ClassNotFoundException{
+        int all = 0;
+        int stu_ET = 0;
+        int stu_BST = 0;
+        int stu_ICT = 0;
+        int stu_AGR = 0;
+        
+        String id;
+        String name;
+        String f_sub;
+        String s_sub;
+        String t_sub;
+        String line;
+        
+        String url = lblLink.getText() + ":" + lblPort.getText() + "/rcc";
+        String user = lblUser.getText();
+        String password = lblPassword.getText();
+        
+        String f_year = stu_AL_year1.getSelectedItem().toString();
+        String f_class = stu_AL_class1.getSelectedItem().toString();
+        
+        System.out.println("-"+ f_year+"-"+f_class+"-");
+        
+        if (f_year.equals("ALL") && f_class.equals("ALL")){
+            updateValues();
+            
+        }else if(f_year.equals("ALL") && !f_class.equals("ALL")){
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+                Statement stmt = conn.createStatement()) {
+                String sql = "SELECT * FROM stu_data WHERE class = '"+ f_class +"'";
+                
+                ResultSet rs = stmt.executeQuery(sql);
+
+                ResultSet result = stmt.executeQuery(sql);
+
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                model.setRowCount(0);
+                    while(result.next()){
+                        String the_class = result.getString(19);
+                        String the_year = result.getString(18);
+
+                        id = result.getString(1);
+                        name = result.getString(2);
+                        f_sub = result.getString(3);
+                        s_sub = result.getString(4);
+                        t_sub = result.getString(5);
+                        String stu_year_class = the_year + " - " + the_class ;
+                        Object[] rowData = {id, name,stu_year_class, s_sub, t_sub};
+                        rowData = new Object[]{id, name,stu_year_class, s_sub, t_sub};
+                        model.addRow(rowData);
+                        
+                        if(s_sub.equals("Engineering Technology (ET)")){
+                            stu_ET = stu_ET + 1;
+                        }if(s_sub.equals("Bio Systems Technology (BST)")){
+                            stu_BST = stu_BST + 1;
+                        }else if(t_sub.equals("Information And Communication Technology (ICT)")){
+                            stu_ICT = stu_ICT + 1;
+                        }else if(t_sub.equals("Agro Technology")){
+                            stu_AGR = stu_AGR + 1;
+                        }
+                }
+                    String lbl_ET = String.valueOf(stu_ET);
+                    lbl_et.setText(lbl_ET);
+
+                    String lbl_BST = String.valueOf(stu_BST);
+                    lbl_bst.setText(lbl_BST);
+
+                    String lbl_ICT = String.valueOf(stu_ICT);
+                    lbl_ict.setText(lbl_ICT);
+
+                    String lbl_AGR = String.valueOf(stu_AGR);
+                    lbl_agr.setText(lbl_AGR);
+
+
+                    int all_1 = stu_ET + stu_BST;
+                    String lbll_all = String.valueOf(all_1);
+                    int all_2 = stu_ICT + stu_AGR;
+                    String lb2_al1 = String.valueOf(all_2);
+
+                    if(lbll_all.equals(lb2_al1)){
+                        lbl_all.setText(lbll_all);
+                    }else{
+                        lbl_all.setText("ET & BST = "+lbll_all+ " | ICT & AGREE = " + lb2_al1);
+                    }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        
+        }else if(!f_year.equals("ALL") && f_class.equals("ALL")){
+            try (Connection conn = DriverManager.getConnection(url, user, password);
+                Statement stmt = conn.createStatement()) {
+                String sql = "SELECT * FROM stu_data WHERE year = '"+ f_year +"'";
+                ResultSet result = stmt.executeQuery(sql);
+
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                model.setRowCount(0);
+//                try {
+                    while(result.next()){
+                        String the_class = result.getString(19);
+                        String the_year = result.getString(18);
+
+                        id = result.getString(1);
+                        name = result.getString(2);
+                        f_sub = result.getString(3);
+                        s_sub = result.getString(4);
+                        t_sub = result.getString(5);
+                        String stu_year_class = the_year + " - " + the_class ;
+                        Object[] rowData = {id, name,stu_year_class, s_sub, t_sub};
+                        rowData = new Object[]{id, name,stu_year_class, s_sub, t_sub};
+                        model.addRow(rowData);
+                        
+                        if(s_sub.equals("Engineering Technology (ET)")){
+                            stu_ET = stu_ET + 1;
+                        }if(s_sub.equals("Bio Systems Technology (BST)")){
+                            stu_BST = stu_BST + 1;
+                        }else if(t_sub.equals("Information And Communication Technology (ICT)")){
+                            stu_ICT = stu_ICT + 1;
+                        }else if(t_sub.equals("Agro Technology")){
+                            stu_AGR = stu_AGR + 1;
+                        }
+                }
+                String lbl_ET = String.valueOf(stu_ET);
+                lbl_et.setText(lbl_ET);
+
+                String lbl_BST = String.valueOf(stu_BST);
+                lbl_bst.setText(lbl_BST);
+
+                String lbl_ICT = String.valueOf(stu_ICT);
+                lbl_ict.setText(lbl_ICT);
+
+                String lbl_AGR = String.valueOf(stu_AGR);
+                lbl_agr.setText(lbl_AGR);
+
+
+                int all_1 = stu_ET + stu_BST;
+                String lbll_all = String.valueOf(all_1);
+                int all_2 = stu_ICT + stu_AGR;
+                String lb2_al1 = String.valueOf(all_2);
+
+                if(lbll_all.equals(lb2_al1)){
+                    lbl_all.setText(lbll_all);
+                }else{
+                    lbl_all.setText("ET & BST = "+lbll_all+ " | ICT & AGREE = " + lb2_al1);
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }else if(!f_year.equals("ALL") && !f_class.equals("ALL")){
+          try (Connection conn = DriverManager.getConnection(url, user, password);
+                Statement stmt = conn.createStatement()) {
+                String sql = "SELECT * FROM stu_data WHERE year = '"+ f_year +"' and class = '"+ f_class +"'";
+                ResultSet result = stmt.executeQuery(sql);
+                
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                model.setRowCount(0);
+//                try {
+                    while(result.next()){
+                        String the_class = result.getString(19);
+                        String the_year = result.getString(18);
+
+                        id = result.getString(1);
+                        name = result.getString(2);
+                        f_sub = result.getString(3);
+                        s_sub = result.getString(4);
+                        t_sub = result.getString(5);
+                        String stu_year_class = the_year + " - " + the_class ;
+                        Object[] rowData = {id, name,stu_year_class, s_sub, t_sub};
+                        rowData = new Object[]{id, name,stu_year_class, s_sub, t_sub};
+                        model.addRow(rowData);
+                        
+                        if(s_sub.equals("Engineering Technology (ET)")){
+                            stu_ET = stu_ET + 1;
+                        }if(s_sub.equals("Bio Systems Technology (BST)")){
+                            stu_BST = stu_BST + 1;
+                        }else if(t_sub.equals("Information And Communication Technology (ICT)")){
+                            stu_ICT = stu_ICT + 1;
+                        }else if(t_sub.equals("Agro Technology")){
+                            stu_AGR = stu_AGR + 1;
+                        }
+                    String lbl_ET = String.valueOf(stu_ET);
+                    lbl_et.setText(lbl_ET);
+
+                    String lbl_BST = String.valueOf(stu_BST);
+                    lbl_bst.setText(lbl_BST);
+
+                    String lbl_ICT = String.valueOf(stu_ICT);
+                    lbl_ict.setText(lbl_ICT);
+
+                    String lbl_AGR = String.valueOf(stu_AGR);
+                    lbl_agr.setText(lbl_AGR);
+
+
+                    int all_1 = stu_ET + stu_BST;
+                    String lbll_all = String.valueOf(all_1);
+                    int all_2 = stu_ICT + stu_AGR;
+                    String lb2_al1 = String.valueOf(all_2);
+
+                    if(lbll_all.equals(lb2_al1)){
+                        lbl_all.setText(lbll_all);
+                    }else{
+                        lbl_all.setText("ET & BST = "+lbll_all+ " | ICT & AGREE = " + lb2_al1);
+                    }
+                }
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }  
+        }
+
+        
+    }
+    
     private void updateValues() throws ClassNotFoundException{
         try {
-//            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            
             lblLink.setEnabled(false);
             lblPort.setEnabled(false);
             lblUser.setEnabled(false);
@@ -1497,17 +1790,19 @@ public class home extends javax.swing.JFrame {
             jButton6.setEnabled(true);
             jButton7.setEnabled(true); 
             btnStop.setEnabled(true); 
+        
+            
+            
             String url = lblLink.getText() + ":" + lblPort.getText() + "/rcc";
             String user = lblUser.getText();
             String password = lblPassword.getText();
             
             String query = "SELECT * FROM stu_data";
-//            String query = "SELECT * FROM stu_data WARE ID = '1'";
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection connection = DriverManager.getConnection(url, user, password);
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(query);
-            
+
             String id;
             String name;
             String f_sub;
@@ -1580,15 +1875,17 @@ public class home extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
             while(result.next()){
+                String the_class = result.getString(19);
+                String the_year = result.getString(18);
+                
                 id = result.getString(1);
                 name = result.getString(2);
                 f_sub = result.getString(3);
                 s_sub = result.getString(4);
                 t_sub = result.getString(5);
-                String the_class = result.getString(19);
-                String the_year = result.getString(18);
-                Object[] rowData = {id, name, s_sub, t_sub};
-                rowData = new Object[]{id, name, s_sub, t_sub};
+                String stu_year_class = the_year + " - " + the_class ;
+                Object[] rowData = {id, name,stu_year_class, s_sub, t_sub};
+                rowData = new Object[]{id, name,stu_year_class, s_sub, t_sub};
                 model.addRow(rowData);
                 
                 
@@ -1725,12 +2022,7 @@ public class home extends javax.swing.JFrame {
                         F_2026 = F_2026 + 1;
                     }
                 }                
-                
-                
-                
-//                JOptionPane.showMessageDialog(null, the_class + "" + the_year);
-                
-//                all = stu_AGR + stu_BST + stu_ET + stu_ICT;
+
             }
 
             String lbl_ET = String.valueOf(stu_ET);
@@ -1749,9 +2041,9 @@ public class home extends javax.swing.JFrame {
            
 //            all = stu_AGR + stu_BST + stu_ET + stu_ICT;
 //            all = all / 2;
-            int all_1 = stu_AGR + stu_BST;
+            int all_1 = stu_ET + stu_BST;
             String lbll_all = String.valueOf(all_1);
-            int all_2 = stu_ET + stu_ICT;
+            int all_2 = stu_ICT + stu_AGR;
             String lb2_al1 = String.valueOf(all_2);
             
             if(lbll_all.equals(lb2_al1)){
@@ -1812,6 +2104,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1840,6 +2133,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1870,10 +2164,12 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_et;
     private javax.swing.JLabel lbl_ict;
     private javax.swing.JComboBox<String> stu_AL_class;
+    private javax.swing.JComboBox<String> stu_AL_class1;
     private javax.swing.JComboBox<String> stu_AL_first;
     private javax.swing.JComboBox<String> stu_AL_main;
     private javax.swing.JComboBox<String> stu_AL_secound;
     private javax.swing.JComboBox<String> stu_AL_year;
+    private javax.swing.JComboBox<String> stu_AL_year1;
     private javax.swing.JTextField stu_ID;
     private javax.swing.JTextField stu_Name;
     private javax.swing.JComboBox<String> stu_OL_BKT1;
