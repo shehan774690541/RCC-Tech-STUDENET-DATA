@@ -15,6 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
@@ -107,6 +109,9 @@ public class home extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        stu_AL_class = new javax.swing.JComboBox<>();
+        jLabel39 = new javax.swing.JLabel();
+        stu_AL_year = new javax.swing.JComboBox<>();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -119,6 +124,8 @@ public class home extends javax.swing.JFrame {
         lbl_bst = new javax.swing.JLabel();
         lbl_ict = new javax.swing.JLabel();
         lbl_agr = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        lblSummary = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
@@ -499,12 +506,40 @@ public class home extends javax.swing.JFrame {
             }
         });
 
+        stu_AL_class.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        stu_AL_class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F" }));
+        stu_AL_class.setBorder(null);
+        stu_AL_class.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLabel39.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel39.setText("year / class");
+
+        stu_AL_year.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        stu_AL_year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026" }));
+        stu_AL_year.setBorder(null);
+        stu_AL_year.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addComponent(jLabel28)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel39)
+                        .addGap(18, 18, 18)
+                        .addComponent(stu_AL_year, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(stu_AL_class, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bkt1_name, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(stu_OL_BKT1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
@@ -553,7 +588,7 @@ public class home extends javax.swing.JFrame {
                                 .addComponent(jLabel35, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(43, 43, 43))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(28, 515, Short.MAX_VALUE)
                         .addComponent(jLabel32)
                         .addGap(35, 35, 35)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -564,31 +599,23 @@ public class home extends javax.swing.JFrame {
                             .addComponent(stu_OL_History, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(stu_OL_English, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
+                        .addGap(53, 53, 53)
                         .addComponent(jButton5)
                         .addGap(66, 66, 66)
                         .addComponent(jButton6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton7)
-                        .addGap(29, 29, 29)
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(bkt3_name, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(stu_OL_BKT3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(bkt2_name, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bkt1_name, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(bkt2_name, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(stu_OL_BKT2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(stu_OL_BKT1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addComponent(stu_OL_BKT2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(44, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel28)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -617,12 +644,7 @@ public class home extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30)
-                            .addComponent(stu_AL_secound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7)))
+                            .addComponent(stu_AL_secound, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -651,20 +673,26 @@ public class home extends javax.swing.JFrame {
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(stu_OL_English, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel37)))
-                            .addComponent(jLabel35))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(stu_OL_BKT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bkt1_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel35))))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(stu_OL_BKT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bkt1_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel39)
+                    .addComponent(stu_AL_year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stu_AL_class, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bkt2_name, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(stu_OL_BKT2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(stu_OL_BKT3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bkt3_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                    .addComponent(bkt3_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5)
+                    .addComponent(jButton6)
+                    .addComponent(jButton7))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Data Insert Menu", jPanel5);
@@ -701,32 +729,42 @@ public class home extends javax.swing.JFrame {
         lbl_agr.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbl_agr.setText("00");
 
+        lblSummary.setEditable(false);
+        lblSummary.setColumns(20);
+        lblSummary.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
+        lblSummary.setRows(5);
+        jScrollPane3.setViewportView(lblSummary);
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbl_et)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_et)
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(59, 59, 59)
-                                .addComponent(lbl_all))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel15)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbl_bst, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbl_ict, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lbl_agr, javax.swing.GroupLayout.Alignment.TRAILING))))))
-                .addContainerGap(317, Short.MAX_VALUE))
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addGap(59, 59, 59)
+                                        .addComponent(lbl_all))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbl_bst, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbl_ict, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbl_agr, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                        .addGap(0, 307, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3))
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -751,7 +789,9 @@ public class home extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(lbl_agr))
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jTabbedPane2.addTab("View Count", jPanel7);
@@ -887,102 +927,11 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStopActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        // TODO add your handling code here:
         try {
-//            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            
-            lblLink.setEnabled(false);
-            lblPort.setEnabled(false);
-            lblUser.setEnabled(false);
-            lblPassword.setEnabled(false);
-            btnStart.setEnabled(false);
-            btnStart1.setEnabled(false);
-            jButton5.setEnabled(true);
-            jButton6.setEnabled(true);
-            jButton7.setEnabled(true); 
-            btnStop.setEnabled(true); 
-            String url = lblLink.getText() + ":" + lblPort.getText() + "/rcc";
-            String user = lblUser.getText();
-            String password = lblPassword.getText();
-            
-            String query = "SELECT * FROM stu_data";
-//            String query = "SELECT * FROM stu_data WARE ID = '1'";
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(url, user, password);
-            Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(query);
-            
-            String id;
-            String name;
-            String f_sub;
-            String s_sub;
-            String t_sub;
-            String line;
-            
-            int all = 0;
-            int stu_ET = 0;
-            int stu_BST = 0;
-            int stu_ICT = 0;
-            int stu_AGR = 0;
-            
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
-            while(result.next()){
-                id = result.getString(1);
-                name = result.getString(2);
-                f_sub = result.getString(3);
-                s_sub = result.getString(4);
-                t_sub = result.getString(5);
-                Object[] rowData = {id, name, s_sub, t_sub};
-                rowData = new Object[]{id, name, s_sub, t_sub};
-                model.addRow(rowData);
-                
-                
-                if(s_sub.equals("Engineering Technology (ET)")){
-                    stu_ET = stu_ET + 1;
-                }if(s_sub.equals("Bio Systems Technology (BST)")){
-                    stu_BST = stu_BST + 1;
-                }else if(t_sub.equals("Information And Communication Technology (ICT)")){
-                    stu_ICT = stu_ICT + 1;
-                }if(t_sub.equals("Agro Technology")){
-                    stu_AGR = stu_AGR + 1;
-                }
-//                all = stu_AGR + stu_BST + stu_ET + stu_ICT;
-            }
-
-            String lbl_ET = String.valueOf(stu_ET);
-            lbl_et.setText(lbl_ET);
-            
-            String lbl_BST = String.valueOf(stu_BST);
-            lbl_bst.setText(lbl_BST);
-            
-            String lbl_ICT = String.valueOf(stu_ICT);
-            lbl_ict.setText(lbl_ICT);
-            
-            String lbl_AGR = String.valueOf(stu_AGR);
-            lbl_agr.setText(lbl_AGR);
-            
-//            all = stu_AGR + stu_BST + stu_ET + stu_ICT;
-//            all = all / 2;
-            int all_1 = stu_AGR + stu_BST;
-            String lbll_all = String.valueOf(all_1);
-            int all_2 = stu_ET + stu_ICT;
-            String lb2_al1 = String.valueOf(all_2);
-            
-            if(lbll_all.equals(lb2_al1)){
-                lbl_all.setText(lbll_all);
-            }else{
-                lbl_all.setText("ET & BST = "+lbll_all+ " | ICT & AGREE = " + lb2_al1);
-            }
-           
-            
-            
-            
-                lblStatus.setText("Server Started!");
-            } catch (Exception e) {
-                lblStatus.setText("ERROR : " + e);
-                JOptionPane.showMessageDialog(null, "Error: " + e, "Error", JOptionPane.ERROR_MESSAGE);
-            }
+            updateValues();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_btnStartActionPerformed
 
@@ -1049,13 +998,15 @@ public class home extends javax.swing.JFrame {
         String ol_part2 = stu_OL_BKT2.getSelectedItem().toString();
         String part_3 = bkt3_name.getSelectedItem().toString();
         String ol_part3 = stu_OL_BKT3.getSelectedItem().toString();
+        String exsamination = stu_AL_year.getSelectedItem().toString();
+        String stu_class = stu_AL_class.getSelectedItem().toString();
         if (jButton5.getText() == "SAVE"){
             try {
                 if(name == "" && ID == ""){
                     JOptionPane.showMessageDialog(null,"Check Name And ID");
                 }
                 else{
-                    String query = "INSERT INTO stu_data VALUES ("+ ID +",'"+ name +"', '"+ m_sub +"', '"+ f_sub +"', '"+ s_sub +"', '"+ ol_maths +"', '"+ ol_science +"', '"+ ol_sinhala +"', '"+ ol_religion +"', '"+ ol_english +"', '"+ part_1 +"', '"+ ol_part1 +"', '"+ part_2 +"', '"+ ol_part2 +"', '"+ part_3 +"', '"+ ol_part3 +"', '"+ ol_history +"')"; //ol_history
+                    String query = "INSERT INTO stu_data VALUES ("+ ID +",'"+ name +"', '"+ m_sub +"', '"+ f_sub +"', '"+ s_sub +"', '"+ ol_maths +"', '"+ ol_science +"', '"+ ol_sinhala +"', '"+ ol_religion +"', '"+ ol_english +"', '"+ part_1 +"', '"+ ol_part1 +"', '"+ part_2 +"', '"+ ol_part2 +"', '"+ part_3 +"', '"+ ol_part3 +"', '"+ ol_history +"', '"+ exsamination +"', '"+ stu_class +"')"; //ol_history
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection connection = DriverManager.getConnection(url, user, password);
                     Statement statement = connection.createStatement();
@@ -1108,7 +1059,7 @@ public class home extends javax.swing.JFrame {
                     String e_part_3 = bkt3_name.getSelectedItem().toString();
                     String e_ol_part3 = stu_OL_BKT3.getSelectedItem().toString();
                     
-                    String query = "UPDATE stu_data set name='"+ e_name +"' ,m_subject='"+e_m_sub+"' ,f_subject='"+e_f_sub+"' ,s_subject='"+e_s_sub+"' ,ol_maths='"+e_ol_maths+"' ,ol_science='"+e_ol_science+"' ,ol_sinhala='"+e_ol_sinhala+"' ,ol_religion='"+e_ol_religion+"' ,ol_english='"+e_ol_english+"' ,part_1='"+e_part_1+"' ,ol_pary1='"+e_ol_part1+"' ,part_2='"+e_part_2+"' ,ol_pary2='"+e_ol_part2+"' ,part_3='"+e_part_3+"' ,ol_pary3='"+e_ol_part3+"' ,ol_history='"+e_ol_history+"'  WHERE ID='" + stu_id + "'";
+                    String query = "UPDATE stu_data set name='"+ e_name +"' ,m_subject='"+e_m_sub+"' ,f_subject='"+e_f_sub+"' ,s_subject='"+e_s_sub+"' ,ol_maths='"+e_ol_maths+"' ,ol_science='"+e_ol_science+"' ,ol_sinhala='"+e_ol_sinhala+"' ,ol_religion='"+e_ol_religion+"' ,ol_english='"+e_ol_english+"' ,part_1='"+e_part_1+"' ,ol_pary1='"+e_ol_part1+"' ,part_2='"+e_part_2+"' ,ol_pary2='"+e_ol_part2+"' ,part_3='"+e_part_3+"' ,ol_pary3='"+e_ol_part3+"' ,ol_history='"+e_ol_history+"' ,year='"+exsamination+"', class='"+stu_class+"'  WHERE ID='" + stu_id + "'";
 //                    " + stu_ID + "   '"+ name +"'
 //,m_subject='"+e_m_sub+"' ,f_subject='"+e_f_sub+"' ,s_subject='"+e_s_sub+"' ,ol_maths='"+e_ol_maths+"' ,ol_science='"+e_ol_science+"' ,ol_sinhala='"+e_ol_sinhala+"' ,ol_religion='"+e_ol_religion+"' ,ol_english='"+e_ol_english+"' ,part_1='"+e_part_1+"' ,ol_pary1='"+e_ol_part1+"' ,part_2='"+e_part_2+"' ,ol_pary2='"+e_ol_part2+"' ,part_3='"+e_part_3+"' ,ol_pary3='"+e_ol_part3+"' ,ol_history='"+e_ol_history+"'
 
@@ -1147,6 +1098,11 @@ public class home extends javax.swing.JFrame {
             }
         }
         stu_ID.setEnabled(true); 
+        try {
+            updateValues();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -1409,6 +1365,40 @@ public class home extends javax.swing.JFrame {
                         stu_OL_BKT3.setSelectedIndex(5);
                     }
                     
+                    String stu_exsam_year = rs.getString("year");
+                    if(stu_exsam_year.equals("2019")){
+                        stu_AL_year.setSelectedIndex(0);
+                    }else if(stu_exsam_year.equals("2020")){
+                        stu_AL_year.setSelectedIndex(1);
+                    }else if(stu_exsam_year.equals("2021")){
+                        stu_AL_year.setSelectedIndex(2);
+                    }else if(stu_exsam_year.equals("2022")){
+                        stu_AL_year.setSelectedIndex(3);
+                    }else if(stu_exsam_year.equals("2023")){
+                        stu_AL_year.setSelectedIndex(4);
+                    }else if(stu_exsam_year.equals("2024")){
+                        stu_AL_year.setSelectedIndex(6);
+                    }else if(stu_exsam_year.equals("2025")){
+                        stu_AL_year.setSelectedIndex(7);
+                    }else if(stu_exsam_year.equals("2026")){
+                        stu_AL_year.setSelectedIndex(8);
+                    }
+                    
+                    String stu_class = rs.getString("class");
+                    if(stu_class.equals("A")){
+                        stu_AL_class.setSelectedIndex(0);
+                    }else if(stu_class.equals("B")){
+                        stu_AL_class.setSelectedIndex(1);
+                    }else if(stu_class.equals("C")){
+                        stu_AL_class.setSelectedIndex(2);
+                    }else if(stu_class.equals("D")){
+                        stu_AL_class.setSelectedIndex(3);
+                    }else if(stu_class.equals("E")){
+                        stu_AL_class.setSelectedIndex(4);
+                    }else if(stu_class.equals("F")){
+                        stu_AL_class.setSelectedIndex(6);
+                    }
+                    
 //                    System.out.println("ID: " + rs.getInt("ID"));
 //                    System.out.println("Name: " + rs.getString("name"));
     //                System.out.println("Age: " + rs.getInt("age"));
@@ -1493,7 +1483,290 @@ public class home extends javax.swing.JFrame {
 //            System.out.println("Opening browser is not supported on this platform.");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+    private void updateValues() throws ClassNotFoundException{
+        try {
+//            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            
+            lblLink.setEnabled(false);
+            lblPort.setEnabled(false);
+            lblUser.setEnabled(false);
+            lblPassword.setEnabled(false);
+            btnStart.setEnabled(false);
+            btnStart1.setEnabled(false);
+            jButton5.setEnabled(true);
+            jButton6.setEnabled(true);
+            jButton7.setEnabled(true); 
+            btnStop.setEnabled(true); 
+            String url = lblLink.getText() + ":" + lblPort.getText() + "/rcc";
+            String user = lblUser.getText();
+            String password = lblPassword.getText();
+            
+            String query = "SELECT * FROM stu_data";
+//            String query = "SELECT * FROM stu_data WARE ID = '1'";
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, password);
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(query);
+            
+            String id;
+            String name;
+            String f_sub;
+            String s_sub;
+            String t_sub;
+            String line;
+            
+            int all = 0;
+            int stu_ET = 0;
+            int stu_BST = 0;
+            int stu_ICT = 0;
+            int stu_AGR = 0;
+            
+            int A_2019 = 0;
+            int B_2019 = 0;
+            int C_2019 = 0;
+            int D_2019 = 0;
+            int E_2019 = 0;
+            int F_2019 = 0;
 
+            int A_2020 = 0;
+            int B_2020 = 0;
+            int C_2020 = 0;
+            int D_2020 = 0;
+            int E_2020 = 0;
+            int F_2020 = 0;
+
+            int A_2021 = 0;
+            int B_2021 = 0;
+            int C_2021 = 0;
+            int D_2021 = 0;
+            int E_2021 = 0;
+            int F_2021 = 0;
+
+            int A_2022 = 0;
+            int B_2022 = 0;
+            int C_2022 = 0;
+            int D_2022 = 0;
+            int E_2022 = 0;
+            int F_2022 = 0;
+
+            int A_2023 = 0;
+            int B_2023 = 0;
+            int C_2023 = 0;
+            int D_2023 = 0;
+            int E_2023 = 0;
+            int F_2023 = 0;
+
+            int A_2024 = 0;
+            int B_2024 = 0;
+            int C_2024 = 0;
+            int D_2024 = 0;
+            int E_2024 = 0;
+            int F_2024 = 0;
+
+            int A_2025 = 0;
+            int B_2025 = 0;
+            int C_2025 = 0;
+            int D_2025 = 0;
+            int E_2025 = 0;
+            int F_2025 = 0;
+
+            int A_2026 = 0;
+            int B_2026 = 0;
+            int C_2026 = 0;
+            int D_2026 = 0;
+            int E_2026 = 0;
+            int F_2026 = 0;
+            
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+            while(result.next()){
+                id = result.getString(1);
+                name = result.getString(2);
+                f_sub = result.getString(3);
+                s_sub = result.getString(4);
+                t_sub = result.getString(5);
+                String the_class = result.getString(19);
+                String the_year = result.getString(18);
+                Object[] rowData = {id, name, s_sub, t_sub};
+                rowData = new Object[]{id, name, s_sub, t_sub};
+                model.addRow(rowData);
+                
+                
+                if(s_sub.equals("Engineering Technology (ET)")){
+                    stu_ET = stu_ET + 1;
+                }if(s_sub.equals("Bio Systems Technology (BST)")){
+                    stu_BST = stu_BST + 1;
+                }else if(t_sub.equals("Information And Communication Technology (ICT)")){
+                    stu_ICT = stu_ICT + 1;
+                }else if(t_sub.equals("Agro Technology")){
+                    stu_AGR = stu_AGR + 1;
+                }
+                
+
+                if(the_year.equals("2019")){
+                    if(the_class.equals("A")){
+                        A_2019 = A_2019 + 1;
+                    }else if(the_class.equals("B")){
+                        B_2019 = B_2019 + 1;
+                    }else if(the_class.equals("C")){
+                        C_2019 = C_2019 + 1;
+                    }else if(the_class.equals("D")){
+                        D_2019 = D_2019 + 1;
+                    }else if(the_class.equals("E")){
+                        E_2019 = E_2019 + 1;
+                    }else if(the_class.equals("F")){
+                        F_2019 = F_2019 + 1;
+                    }
+
+                }else if(the_year.equals("2020")){
+                    if(the_class.equals("A")){
+                        A_2020 = A_2020 + 1;
+                    }else if(the_class.equals("B")){
+                        B_2020 = B_2020 + 1;
+                    }else if(the_class.equals("C")){
+                        C_2020 = C_2020 + 1;
+                    }else if(the_class.equals("D")){
+                        D_2020 = D_2020 + 1;
+                    }else if(the_class.equals("E")){
+                        E_2020 = E_2020 + 1;
+                    }else if(the_class.equals("F")){
+                        F_2020 = F_2020 + 1;
+                    }
+
+                }else if(the_year.equals("2021")){
+                    if(the_class.equals("A")){
+                        A_2021 = A_2021 + 1;
+                    }else if(the_class.equals("B")){
+                        B_2021 = B_2021 + 1;
+                    }else if(the_class.equals("C")){
+                        C_2021 = C_2021 + 1;
+                    }else if(the_class.equals("D")){
+                        D_2021 = D_2021 + 1;
+                    }else if(the_class.equals("E")){
+                        E_2021 = E_2021 + 1;
+                    }else if(the_class.equals("F")){
+                        F_2021 = F_2021 + 1;
+                    }
+
+
+                }else if(the_year.equals("2022")){
+                    if(the_class.equals("A")){
+                        A_2022 = A_2022 + 1;
+                    }else if(the_class.equals("B")){
+                        B_2022 = B_2022 + 1;
+                    }else if(the_class.equals("C")){
+                        C_2022 = C_2022 + 1;
+                    }else if(the_class.equals("D")){
+                        D_2022 = D_2022 + 1;
+                    }else if(the_class.equals("E")){
+                        E_2022 = E_2022 + 1;
+                    }else if(the_class.equals("F")){
+                        F_2022 = F_2022 + 1;
+                    }
+
+                }else if(the_year.equals("2023")){
+                    if(the_class.equals("A")){
+                        A_2023 = A_2023 + 1;
+                    }else if(the_class.equals("B")){
+                        B_2023 = B_2023 + 1;
+                    }else if(the_class.equals("C")){
+                        C_2023 = C_2023 + 1;
+                    }else if(the_class.equals("D")){
+                        D_2023 = D_2023 + 1;
+                    }else if(the_class.equals("E")){
+                        E_2023 = E_2023 + 1;
+                    }else if(the_class.equals("F")){
+                        F_2023 = F_2023 + 1;
+                    }
+
+                }else if(the_year.equals("2024")){
+                    if(the_class.equals("A")){
+                        A_2024 = A_2023 + 1;
+                    }else if(the_class.equals("B")){
+                        B_2024 = B_2023 + 1;
+                    }else if(the_class.equals("C")){
+                        C_2024 = C_2023 + 1;
+                    }else if(the_class.equals("D")){
+                        D_2024 = D_2023 + 1;
+                    }else if(the_class.equals("E")){
+                        E_2024 = E_2023 + 1;
+                    }else if(the_class.equals("F")){
+                        F_2024 = F_2023 + 1;
+                    }
+
+                }else if(the_year.equals("2025")){
+                    if(the_class.equals("A")){
+                        A_2025 = A_2025 + 1;
+                    }else if(the_class.equals("B")){
+                        B_2025 = B_2025 + 1;
+                    }else if(the_class.equals("C")){
+                        C_2025 = C_2025 + 1;
+                    }else if(the_class.equals("D")){
+                        D_2025 = D_2025 + 1;
+                    }else if(the_class.equals("E")){
+                        E_2025 = E_2025 + 1;
+                    }else if(the_class.equals("F")){
+                        F_2025 = F_2025 + 1;
+                    }
+
+
+                }else if(the_year.equals("2026")){
+                    if(the_class.equals("A")){
+                        A_2026 = A_2026 + 1;
+                    }else if(the_class.equals("B")){
+                        B_2026 = B_2026 + 1;
+                    }else if(the_class.equals("C")){
+                        C_2026 = C_2026 + 1;
+                    }else if(the_class.equals("D")){
+                        D_2026 = D_2026 + 1;
+                    }else if(the_class.equals("E")){
+                        E_2026 = E_2026 + 1;
+                    }else if(the_class.equals("F")){
+                        F_2026 = F_2026 + 1;
+                    }
+                }                
+                
+                
+                
+//                JOptionPane.showMessageDialog(null, the_class + "" + the_year);
+                
+//                all = stu_AGR + stu_BST + stu_ET + stu_ICT;
+            }
+
+            String lbl_ET = String.valueOf(stu_ET);
+            lbl_et.setText(lbl_ET);
+            
+            String lbl_BST = String.valueOf(stu_BST);
+            lbl_bst.setText(lbl_BST);
+            
+            String lbl_ICT = String.valueOf(stu_ICT);
+            lbl_ict.setText(lbl_ICT);
+            
+            String lbl_AGR = String.valueOf(stu_AGR);
+            lbl_agr.setText(lbl_AGR);
+            
+            lblSummary.setText("2019-A "+A_2019+" 2020-A "+A_2020+" 2021-A "+A_2021+" 2022-A "+A_2022+" 2023-A "+A_2023+" 2024-A "+A_2024+" 2025-A "+A_2025+" 2026-A "+B_2026+" \n2019-B "+B_2019+" 2020-B "+B_2020+" 2021-B "+B_2021+" 2022-B "+B_2022+" 2023-B "+B_2023+" 2024-B "+B_2024+" 2025-B "+B_2025+" 2026-B "+B_2026+" \n2019-C "+C_2019+" 2020-C "+C_2020+" 2021-C "+C_2021+" 2022-C "+C_2022+" 2023-C "+C_2023+" 2024-C "+C_2024+" 2025-C "+C_2025+" 2026-C "+C_2026+" \n2019-D "+D_2019+" 2020-D "+D_2020+" 2021-D "+D_2021+" 2022-D "+D_2022+" 2023-D "+D_2023+" 2024-D "+D_2024+" 2025-D "+D_2025+" 2026-D "+D_2026+" \n2019-E "+E_2019+" 2020-E "+E_2020+" 2021-E "+E_2021+" 2022-E "+E_2022+" 2023-E "+E_2023+" 2024-E "+E_2024+" 2025-E "+E_2025+" 2026-E "+E_2026+" \n2019-F "+F_2019+" 2020-F "+F_2020+" 2021-F "+F_2021+" 2022-F "+F_2022+" 2023-F "+F_2023+" 2024-F "+F_2024+" 2025-F "+F_2025+" 2026-F "+F_2026+" ");
+           
+//            all = stu_AGR + stu_BST + stu_ET + stu_ICT;
+//            all = all / 2;
+            int all_1 = stu_AGR + stu_BST;
+            String lbll_all = String.valueOf(all_1);
+            int all_2 = stu_ET + stu_ICT;
+            String lb2_al1 = String.valueOf(all_2);
+            
+            if(lbll_all.equals(lb2_al1)){
+                lbl_all.setText(lbll_all);
+            }else{
+                lbl_all.setText("ET & BST = "+lbll_all+ " | ICT & AGREE = " + lb2_al1);
+            }
+                lblStatus.setText("Server Started!");
+            } catch (Exception e) {
+                lblStatus.setText("ERROR : " + e);
+                JOptionPane.showMessageDialog(null, "Error: " + e, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -1565,6 +1838,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1579,6 +1853,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane4;
@@ -1587,15 +1862,18 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JPasswordField lblPassword;
     private javax.swing.JTextField lblPort;
     private javax.swing.JLabel lblStatus;
+    private javax.swing.JTextArea lblSummary;
     private javax.swing.JTextField lblUser;
     private javax.swing.JLabel lbl_agr;
     private javax.swing.JLabel lbl_all;
     private javax.swing.JLabel lbl_bst;
     private javax.swing.JLabel lbl_et;
     private javax.swing.JLabel lbl_ict;
+    private javax.swing.JComboBox<String> stu_AL_class;
     private javax.swing.JComboBox<String> stu_AL_first;
     private javax.swing.JComboBox<String> stu_AL_main;
     private javax.swing.JComboBox<String> stu_AL_secound;
+    private javax.swing.JComboBox<String> stu_AL_year;
     private javax.swing.JTextField stu_ID;
     private javax.swing.JTextField stu_Name;
     private javax.swing.JComboBox<String> stu_OL_BKT1;
