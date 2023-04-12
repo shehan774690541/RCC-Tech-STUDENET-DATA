@@ -36,12 +36,16 @@ public class home extends javax.swing.JFrame {
      * Creates new form home
      */
     public home() {
+        lodin jf3 = new lodin();
+        jf3.show();
         initComponents();
         jButton5.setEnabled(false);
         jButton6.setEnabled(false);
         jButton7.setEnabled(false); 
         btnStop.setEnabled(false);
         btnDelet.setEnabled(false); 
+        connection();
+        jf3.dispose();
     }
 
     /**
@@ -58,6 +62,7 @@ public class home extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -180,6 +185,8 @@ public class home extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Corbel", 0, 24)); // NOI18N
         jLabel2.setText("RCC - TECH Student Data Management System");
 
+        jLabel10.setText("V 0.0.1.23");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -187,13 +194,17 @@ public class home extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -291,9 +302,9 @@ public class home extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(17, 17, 17)
                 .addComponent(jLabel4)
-                .addGap(46, 46, 46)
+                .addGap(32, 32, 32)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -315,7 +326,7 @@ public class home extends javax.swing.JFrame {
                             .addComponent(btnStart)
                             .addComponent(btnStop)
                             .addComponent(btnStart1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                         .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52))
                     .addGroup(jPanel4Layout.createSequentialGroup()
@@ -1003,30 +1014,10 @@ public class home extends javax.swing.JFrame {
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnStart1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStart1ActionPerformed
-        lblStatus.setText("Scaning...");
-        String url = lblLink.getText() + ":" + lblPort.getText() + "/";
-        String user = lblUser.getText();
-        String password = lblPassword.getText();
-        Connection conn = null;
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(url, user, password);
-            lblStatus.setText("Connection successful!");
-            //            System.out.println("Connection successful!");
-        } catch (Exception e) {
-            lblStatus.setText("Connection failed!");
-            //            System.err.println("Connection failed!");
-            //            e.printStackTrace();
-        } finally {
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                lblStatus.setText("ERROR : " + e);
-            }
-        }        // TODO add your handling code here:
+      // TODO add your handling code here:
+      connection();
     }//GEN-LAST:event_btnStart1ActionPerformed
-
+    
     private void stu_IDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stu_IDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_stu_IDActionPerformed
@@ -1166,7 +1157,7 @@ public class home extends javax.swing.JFrame {
         }
         stu_ID.setEnabled(true); 
         try {
-            updateValues();
+            filter();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(home.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1643,6 +1634,14 @@ public class home extends javax.swing.JFrame {
         String t_sub;
         String line;
         
+        lbl_et.setText("00");
+        lbl_bst.setText("00");
+        lbl_ict.setText("00");
+        lbl_agr.setText("00");
+        lbl_all.setText("00");
+        lblSummary.setText("-");
+        updateValues();
+        
         String url = lblLink.getText() + ":" + lblPort.getText() + "/rcc";
         String user = lblUser.getText();
         String password = lblPassword.getText();
@@ -1690,6 +1689,9 @@ public class home extends javax.swing.JFrame {
                             stu_AGR = stu_AGR + 1;
                         }
                 }
+                    lblSummary.setText("-");
+                    updateValues();
+                    
                     String lbl_ET = String.valueOf(stu_ET);
                     lbl_et.setText(lbl_ET);
 
@@ -1750,6 +1752,9 @@ public class home extends javax.swing.JFrame {
                             stu_AGR = stu_AGR + 1;
                         }
                 }
+                    lblSummary.setText("-");
+                    updateValues();
+                    
                 String lbl_ET = String.valueOf(stu_ET);
                 lbl_et.setText(lbl_ET);
 
@@ -1808,6 +1813,10 @@ public class home extends javax.swing.JFrame {
                         }else if(t_sub.equals("Agro Technology")){
                             stu_AGR = stu_AGR + 1;
                         }
+                        
+                    lblSummary.setText("-");
+                    updateValues();
+                    
                     String lbl_ET = String.valueOf(stu_ET);
                     lbl_et.setText(lbl_ET);
 
@@ -1839,7 +1848,31 @@ public class home extends javax.swing.JFrame {
 
         
     }
-    
+    public void connection(){
+        lblStatus.setText("Scaning...");
+        String url = lblLink.getText() + ":" + lblPort.getText() + "/";
+        String user = lblUser.getText();
+        String password = lblPassword.getText();
+        Connection conn = null;
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(url, user, password);
+            lblStatus.setText("Connection successful!");
+            //            System.out.println("Connection successful!");
+        } catch (Exception e) {
+            lblStatus.setText("Connection failed!");
+            JOptionPane.showMessageDialog(null, "Error: " + e, "Error", JOptionPane.ERROR_MESSAGE);
+            //            System.err.println("Connection failed!");
+            //            e.printStackTrace();
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                lblStatus.setText("ERROR : " + e);
+            }
+        }  
+    }
     private void updateValues() throws ClassNotFoundException{
         try {
             lblLink.setEnabled(false);
@@ -2173,6 +2206,7 @@ public class home extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
